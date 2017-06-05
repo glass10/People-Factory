@@ -4,7 +4,7 @@ function handleSubmit(ev){
     ev.preventDefault();
     const f = ev.target;
     const heading = document.querySelector('h1');
-    heading.textContent = f.personName.value;
-    console.log(f.personName.value);
+    heading.textContent = f.yourName.value + ' and ' + f.friendName.value;
+    console.log(f.yourName.value + ' and ' + f.friendName.value);
 }
 personForm.addEventListener('submit', handleSubmit);
