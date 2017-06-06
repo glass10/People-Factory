@@ -18,9 +18,10 @@ function handleSubmit(ev){
     else if(yourName !== "" && movieName === ""){ //Just Name
         heading.textContent = yourName;
         //label.textContent = yourName.toUpperCase();
-        const boldedName = document.createElement('strong');
-        boldedName.textContent = yourName;
-        details.appendChild(boldedName);
+        // const boldedName = document.createElement('strong');
+        // boldedName.textContent = yourName;
+        // details.appendChild(boldedName);
+
 
         console.log(yourName);
     }
@@ -35,6 +36,13 @@ function handleSubmit(ev){
         label.textContent = "Error: Put in some info!";
         console.log('No info Entered');
     }
+     details.innerHTML = `
+        <ul>
+            <li>Name: ${yourName}</li>
+            <li>Movie Title: ${movieName}</li>
+        </ul>
+        
+        `
 }
 
 function movie(name){
