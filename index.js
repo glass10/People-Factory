@@ -81,21 +81,7 @@ function color(url){
              console.log(color);
              label.style.color = color;
 
-             const colorDiv = `
-                <div style="background-color: ${color}; width: 100px; height: 50px;"></div>
-             `
-            const list = document.createElement('ul');
-            const listName = document.createElement('li');
-            listName.textContent = "Name: " + nameVar;
-            const listMovie = document.createElement('li');
-            listMovie.textContent = "Movie Title: " + movieVar;
-            const listColor = document.createElement('li');
-            listColor.innerHTML = `Color: ${colorDiv}`;
-
-            list.appendChild(listName);
-            list.appendChild(listMovie);
-            list.appendChild(listColor);
-            details.appendChild(list);
+            renderList(color);
 
                 //details.appendChild(renderList(list));
                 //   details.innerHTML = `
@@ -110,6 +96,25 @@ function color(url){
     };
     xhttp2.open("GET",url, true);
     xhttp2.send();
+}
+
+function renderList(color){
+    const colorDiv = `
+                <div style="background-color: ${color}; width: 100px; height: 50px;"></div>
+             `
+    const list = document.createElement('ul');
+    const listName = document.createElement('li');
+    listName.textContent = "Name: " + nameVar;
+    const listMovie = document.createElement('li');
+    listMovie.textContent = "Movie Title: " + movieVar;
+    const listColor = document.createElement('li');
+    listColor.innerHTML = `Color: ${colorDiv}`;
+
+    list.appendChild(listName);
+    list.appendChild(listMovie);
+    list.appendChild(listColor);
+    details.innerHTML = "";
+    details.appendChild(list);
 }
 String.prototype.replaceAt  = function(index, character, string)
 {
