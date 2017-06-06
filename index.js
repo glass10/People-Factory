@@ -1,5 +1,3 @@
-const http = new XMLHttpRequest();
-const http2 = new XMLHttpRequest();
 const personForm = document.querySelector('#personForm');
 
 //var jsonResponse;
@@ -11,7 +9,7 @@ function handleSubmit(ev){
     const label = document.querySelector('font');
     const yourName = f.yourName.value;
     const movieName = f.movieName.value;
-    if(yourName !== "" && movieName !== ""){ //Both 
+    if(yourName !== "" && movieName !== ""){ //Both e 
         heading.textContent = movieName + ' for ' + yourName;
         movie(movieName);
         label.textContent = yourName.toUpperCase();
@@ -19,7 +17,11 @@ function handleSubmit(ev){
     }
     else if(yourName !== "" && movieName === ""){ //Just Name
         heading.textContent = yourName;
-        label.textContent = yourName.toUpperCase();
+        //label.textContent = yourName.toUpperCase();
+        const boldedName = document.createElement('strong');
+        boldedName.textContent = yourName;
+        details.appendChild(boldedName);
+
         console.log(yourName);
     }
     else if(yourName === "" && movieName !== ""){ //Just Movie
@@ -46,7 +48,6 @@ function movie(name){
             result = result.replaceAt(index, "-", name);
         }
     }
-    http.addEventListener("load", color);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
