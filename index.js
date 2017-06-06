@@ -84,14 +84,27 @@ function color(url){
              const colorDiv = `
                 <div style="background-color: ${color}; width: 100px; height: 50px;"></div>
              `
+            const list = document.createElement('ul');
+            const listName = document.createElement('li');
+            listName.textContent = "Name: " + nameVar;
+            const listMovie = document.createElement('li');
+            listMovie.textContent = "Movie Title: " + movieVar;
+            const listColor = document.createElement('li');
+            listColor.innerHTML = `Color: ${colorDiv}`;
 
-                  details.innerHTML = `
-                    <ul>
-                        <li>Name: ${nameVar}</li>
-                        <li>Movie Title: ${movieVar}</li>
-                        <li>Color: ${color}</li>
-                    </ul>
-                    `
+            list.appendChild(listName);
+            list.appendChild(listMovie);
+            list.appendChild(listColor);
+            details.appendChild(list);
+
+                //details.appendChild(renderList(list));
+                //   details.innerHTML = `
+                //     <ul>
+                //         <li>Name: ${nameVar}</li>
+                //         <li>Movie Title: ${movieVar}</li>
+                //         <li>Color: ${colorDiv}</li>
+                //     </ul>
+                //     `
              //return color;
         }
     };
