@@ -1,6 +1,8 @@
 const personForm = document.querySelector('#personForm');
 
 //var jsonResponse;
+var nameVar;
+var movieVar;
 
 function handleSubmit(ev){
     ev.preventDefault();
@@ -9,6 +11,8 @@ function handleSubmit(ev){
     const label = document.querySelector('font');
     const yourName = f.yourName.value;
     const movieName = f.movieName.value;
+    nameVar = yourName;
+    movieVar = movieName;
     if(yourName !== "" && movieName !== ""){ //Both e 
         heading.textContent = movieName + ' for ' + yourName;
         movie(movieName);
@@ -36,13 +40,6 @@ function handleSubmit(ev){
         label.textContent = "Error: Put in some info!";
         console.log('No info Entered');
     }
-     details.innerHTML = `
-        <ul>
-            <li>Name: ${yourName}</li>
-            <li>Movie Title: ${movieName}</li>
-        </ul>
-        
-        `
 }
 
 function movie(name){
@@ -83,6 +80,18 @@ function color(url){
              const color = (JSON.parse(this.responseText))[0].primary.hex;
              console.log(color);
              label.style.color = color;
+
+             const colorDiv = `
+                <div style="background-color: ${color}; width: 100px; height: 50px;"></div>
+             `
+
+                  details.innerHTML = `
+                    <ul>
+                        <li>Name: ${nameVar}</li>
+                        <li>Movie Title: ${movieVar}</li>
+                        <li>Color: ${color}</li>
+                    </ul>
+                    `
              //return color;
         }
     };
